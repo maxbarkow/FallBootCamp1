@@ -10,9 +10,9 @@ var requestHandler = function(request, response) {
 
    if (parsedUrl.pathname == '/listings' && request.method == "GET") {
           response.writeHead(200, {"Content-Type": "application/json"});
-
           response.end(listingData);
    }
+
    else {
           response.writeHead(404, {"Content-Type": "text/plain"});
           response.write("Bad gateway error");
@@ -23,7 +23,8 @@ var requestHandler = function(request, response) {
 
 fs.readFile('listings.json', 'utf8', function(err, data) {
 
-   if (err) {throw(err);
+   if (err) {
+     throw(err);
    }
 
    listingData = data;
